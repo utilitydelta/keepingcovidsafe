@@ -1,0 +1,45 @@
+﻿@page
+@model KeepingCovidSafe.Pages.Visit.IndexModel
+
+@{
+    ViewData["Title"] = Model.Venue.Name + " Log";
+}
+
+<h1>@Model.Venue.Name</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Visit[0].VisitTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visit[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visit[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visit[0].Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Visit) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisitTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

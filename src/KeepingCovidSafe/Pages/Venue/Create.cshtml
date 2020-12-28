@@ -1,0 +1,63 @@
+﻿@page
+@model KeepingCovidSafe.Pages.Venue.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Venue</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Venue.Address" class="control-label"></label>
+                <input asp-for="Venue.Address" class="form-control" />
+                <span asp-validation-for="Venue.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venue.TimeZone" class="control-label"></label>
+                <select asp-for="Venue.TimeZone" class="form-control">
+                    <option value="">Choose a time zone</option>
+                    @foreach(var zone in Model.TimeZoneInfos) {
+                        <option value="@zone.StandardName">@zone.DisplayName</option>
+                    }
+                </select>
+                <span asp-validation-for="Venue.TimeZone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venue.Name" class="control-label"></label>
+                <input asp-for="Venue.Name" class="form-control" />
+                <span asp-validation-for="Venue.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venue.InstagramLink" class="control-label"></label>
+                <input asp-for="Venue.InstagramLink" class="form-control" />
+                <span asp-validation-for="Venue.InstagramLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script type="text/javascript">
+    var chars = Intl.DateTimeFormat().resolvedOptions().timeZone.slice(-5);
+    $('#Venue_TimeZone option').each(function () {
+        if ($(this).html().includes(chars)) {
+            $("#Venue_TimeZone option[value='" + $(this).val()+"']").attr("selected", true);
+        }
+    });
+</script>
+}

@@ -1,0 +1,56 @@
+﻿@page
+@model KeepingCovidSafe.Pages.Venue.IndexModel
+
+@{
+    ViewData["Title"] = "My Venues";
+}
+
+<h1>My Venues</h1>
+
+<p>
+    <a asp-page="Create">Add a new venue</a>
+</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Venue[0].Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Venue[0].Name)
+                        </th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Venue)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                <a asp-page="./Details" asp-route-id="@item.Id">Print QR Code</a>
+                            </td>
+                            <td>
+                                <a asp-page="/Visit/Index" asp-route-venueId="@item.Id">Visitor Log</a>
+                            </td>
+                            <td>
+                                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

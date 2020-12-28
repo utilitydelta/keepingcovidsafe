@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-left">
+
+    <h4 class="mt-5 mb-3">KeepingCovidSafe Guest Registration Service</h4>
+    <p class=" mb-5">
+        KeepingCovidSafe is a QR code guest registration service.
+        The system will retain an online visitor log book for each of your venues. Sign up for a free weekly trial. Purchase 90 days for $10 AUD.
+        </p>
+        <div class="container">
+            <div class="row align-items-center mb-3 mt-3">
+                <div class="col-sm-auto">
+                    <img src="~/icons8-registration-80.png" />
+                </div>
+                <div class="col">
+                    <p><a href="Identity/Account/Register">Register</a> with your personal or work email address and start your trial week.</p>
+                </div>
+        </div>
+        <div class="row align-items-center mb-3">
+            <div class="col-sm-auto">
+                <img src="~/icons8-performance-80.png" />
+            </div>
+            <div class="col">
+                <p>Add up to 10 <a asp-page="/Venue/Index">venues</a>. Link venues to your instagram to drive social marketing.</p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-3">
+            <div class="col-sm-auto">
+                <img src="~/icons8-qr-code-80.png" />
+            </div>
+            <div class="col-sm">
+                <p>Print out the QR Code page for each venue and make it available for your visitors to check in.</p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-5">
+            <div class="col-sm-auto">
+                <img src="~/icons8-analyze-80.png" />
+            </div>
+            <div class="col">
+                <p>You can view a list of visitors from the last 28 days per venue for contact tracing purposes.</p>
+            </div>
+        </div>
+    </div>
+    <p>
+        This site uses full end-to-end encryption. Venue managers can only view the check in logs for the venues they manage.
+        Venue checkins older than 28 days are automatically removed from the database.
+    </p>
+</div>

@@ -1,0 +1,17 @@
+﻿@page
+@model KeepingCovidSafe.Pages.Visit.ThanksModel
+@{
+    ViewData["HideHeader"] = "True";
+}
+
+<div class="d-flex justify-content-center mb-3 mt-3">
+    <h1>Thanks for signing in.</h1>
+</div>
+<div class="d-flex justify-content-center mb-3 mt-3">
+    <h4>Need a visitor registration app? Visit <a href="https://keepingcovidsafe.com">keepingcovidsafe.com</a> to sign up your business!</h4>
+</div>
+@if (Model.Venue.InstagramLink != null) {
+<div class="d-flex justify-content-center mb-3 mt-3">
+    <a href="@Model.Venue.InstagramLink" title="Visit @Model.Venue.Name"><img width="100" height="100" src="~/Instagram_AppIcon_Aug2017.png" /></a>
+</div>
+}

@@ -1,0 +1,23 @@
+﻿@page
+@model KeepingCovidSafe.Pages.Venue.DetailsModel
+
+@{
+    ViewData["Title"] = "Venue QR Code Printout";
+    ViewData["HideHeader"] = "True";
+    ViewData["HideFooter"] = "True";
+}
+
+<div style="text-align: center; margin:50px;">
+    <h1 style="font-size:80px">@Html.DisplayFor(model => model.Venue.Name)</h1>
+    <h1>Visitor Sign In</h1>
+</div>
+<div style="text-align: center" id="qrcode"></div>
+<div style="text-align: center; margin:50px;">
+    <h1>Powered by keepingcovidsafe.com</h1>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $('#qrcode').qrcode({ width: 700, height: 700, text: "@Model.BaseUrl/Visit/Add?VenueId=@Model.Venue.Id" });
+    </script>
+}
